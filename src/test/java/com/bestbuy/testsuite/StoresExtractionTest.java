@@ -175,7 +175,7 @@ public class StoresExtractionTest {
     //15. Find the createdAt for all services whose name = “Windows Store”
     @Test
     public void test015() {
-        List<HashMap<String, ?>> createdAtList = response.extract().path("data.services.findAll{it.name == 'Windows Store'}.createdAt");
+        List<String> createdAtList = response.extract().path("data.services*.findAll{it.name == 'Windows Store'}.createdAt");
 
         System.out.println("------------------StartingTest---------------------------");
         System.out.println("The all the createdAt for all services whose name = “Windows Store” : " +createdAtList);
@@ -211,8 +211,7 @@ public class StoresExtractionTest {
     //19. Find the storeservices details of the service name = Magnolia Home Theater
     @Test
     public void test019() {
-        List<HashMap<String, ?>> storeservicesDetails = response.extract().path("data.findAll{it.name == 'Magnolia Home Theater'}.storeservices");
-
+        List<?> storeservicesDetails = response.extract().path("data.services*.findAll{it.name == 'Magnolia Home Theater'}.storeservices");
         System.out.println("------------------StartingTest---------------------------");
         System.out.println("The storeservices details of the service name = Magnolia Home Theater : " +storeservicesDetails);
         System.out.println("------------------End of Test---------------------------");
