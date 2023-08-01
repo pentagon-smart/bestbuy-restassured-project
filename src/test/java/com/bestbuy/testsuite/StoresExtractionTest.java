@@ -184,7 +184,7 @@ public class StoresExtractionTest {
     //16. Find the name of all services Where store name = “Fargo”
     @Test
     public void test016() {
-        List<HashMap<String, ?>> serviceName = response.extract().path("data.findAll{it.name == 'Fargo'}.services");
+        List<HashMap<String, ?>> serviceName = response.extract().path("data.findAll{it.name == 'Fargo'}.services.name");
 
         System.out.println("------------------StartingTest---------------------------");
         System.out.println("The all the name of all services Where store name = “Fargo” : " +serviceName);
